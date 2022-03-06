@@ -1,3 +1,63 @@
+let playerChoice = prompt("Rock, paper or scissors?").toLocaleLowerCase();
+
+play(playerChoice, computerPlay());
+
+/*-----functions-----*/
+
+function computerPlay(){
+    random = Math.floor(Math.random()*3);
+    
+    switch(random){
+        case 0:
+            random = "rock";
+            return random;
+        case 1:
+            random = "paper";
+            return random;
+        case 2:
+            random = "scissors";
+            return random;
+        default:
+            alert("The programmer wannabe screwed up "+
+            "something.\nRefresh the page and try again.");
+            break;
+    }
+}
+/*-----*/
+function play(playerSelection, computerSelection){
+    if(playerSelection == computerSelection){
+        alert("It's a tie!");
+    } else if(playerSelection == "rock"
+    && computerSelection == "paper"){
+        alert("Paper beats rock. Computer wins!");
+    } else if(playerSelection == "rock"
+    && computerSelection == "scissors"){
+        alert("rock beats scissors. Player wins!");
+    } else if(playerSelection == "paper"
+    && computerSelection == "rock"){
+        alert("paper beats rock. Player wins!");
+    } else if(playerSelection == "paper"
+    && computerSelection == "scissors"){
+        alert("scissors beats paper. Computer wins!");
+    } else if(playerSelection == "scissors"
+    && computerSelection == "rock"){
+        alert("rock beats scissors. Computer wins!");
+    } else if(playerSelection == "scissors"
+    && computerSelection == "paper"){
+        alert("scissors beats paper. Player wins!");
+    } else {
+        alert("Something went wrong. Ugh!");
+    }
+}
+
+
+
+
+
+
+/* Everything below has been planned as practice without
+following the course, won't be used */
+
 /* problem solving for Rock Paper Scissors game.
 - Rules:
  rock beats scissors, paper beats rock, scissors beat paper.
