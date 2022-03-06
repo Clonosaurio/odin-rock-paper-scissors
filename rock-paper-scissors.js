@@ -1,13 +1,23 @@
 let playerSelection;
 let computerSelection;
+let playerScore = 0;
+let computerScore = 0;
+
+alert("Rock Paper Scissors prompt edition!\n\n"
+    +"Yeah, it sucks. Will be updated in the future.")
 
 game()
 
+alert("End of the match! The scores are:\n"
++"Player: "+playerScore+" points.\n"
++"Computer: "+computerScore+" points.\n"
++declareWinner())
 
 /*-----functions-----*/
 
 function game(){
     for(let i = 0; i < 5; i++){
+        /*while*/
         playerSelection = prompt("Rock, paper or scissors?").toLocaleLowerCase();
         computerSelection = computerPlay();
 
@@ -43,19 +53,26 @@ function playRound(playerSelection, computerSelection){
     || (playerSelection == "paper" && computerSelection == "scissors")
     || (playerSelection == "scissors" && computerSelection == "rock")){
         alert(computerSelection+" beats "+playerSelection+". Computer wins!");
-
+        computerScore++;
     } else if((playerSelection == "rock" && computerSelection == "scissors")
     || (playerSelection == "paper" && computerSelection == "rock")
     || (playerSelection == "scissors" && computerSelection == "paper")){
         alert(playerSelection+" beats "+computerSelection+". Player wins!");
-
-
-
+        playerScore++;
     } else {
         alert("Something went wrong. Ugh!");
     }
 }
 
+function declareWinner(){
+    if(playerScore > computerScore){
+        return "Victoly! A winner is you!";
+    } else if(playerScore < computerScore){
+        return "Computer wins! You lost, nyah-nyah-nyah-nyah.";
+    }else{
+        return "it's a tie! Well, that sucks.";
+    }
+}
 
 
 
