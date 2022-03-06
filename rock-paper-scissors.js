@@ -1,9 +1,19 @@
-while(true){
-    let playerChoice = prompt("Rock, paper or scissors?").toLocaleLowerCase();
-play(playerChoice, computerPlay());
-}
+let playerSelection;
+let computerSelection;
+
+game()
+
 
 /*-----functions-----*/
+
+function game(){
+    for(let i = 0; i < 5; i++){
+        playerSelection = prompt("Rock, paper or scissors?").toLocaleLowerCase();
+        computerSelection = computerPlay();
+
+        playRound(playerSelection, computerSelection);
+    }
+}
 
 function computerPlay(){
     random = Math.floor(Math.random()*3);
@@ -25,7 +35,7 @@ function computerPlay(){
     }
 }
 /*-----*/
-function play(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){
     if(playerSelection == computerSelection){
         alert("It's a tie!");
 
