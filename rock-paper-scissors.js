@@ -6,22 +6,27 @@ let computerScore = 0;
 alert("Rock Paper Scissors prompt edition!\n\n"
     +"Yeah, it sucks. Will be updated in the future.")
 
+prompt("What's your name?");
+alert("whatever, I'll call you Wiggles.");
+
 game()
 
 alert("End of the match! The scores are:\n"
 +"Player: "+playerScore+" points.\n"
-+"Computer: "+computerScore+" points.\n"
++"Computer: "+computerScore+" points.\n\n"
 +declareWinner())
 
 /*-----functions-----*/
 
 function game(){
     for(let i = 0; i < 5; i++){
-        /*while*/
-        playerSelection = prompt("Rock, paper or scissors?").toLocaleLowerCase();
+        while(playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors"){
+            playerSelection = prompt("Rock, paper or scissors?").toLocaleLowerCase();
+        }
         computerSelection = computerPlay();
 
         playRound(playerSelection, computerSelection);
+        playerSelection = ""; /*clears value or the while won't let player write*/
     }
 }
 
