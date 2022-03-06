@@ -1,6 +1,7 @@
-let playerChoice = prompt("Rock, paper or scissors?").toLocaleLowerCase();
-
+while(true){
+    let playerChoice = prompt("Rock, paper or scissors?").toLocaleLowerCase();
 play(playerChoice, computerPlay());
+}
 
 /*-----functions-----*/
 
@@ -27,24 +28,19 @@ function computerPlay(){
 function play(playerSelection, computerSelection){
     if(playerSelection == computerSelection){
         alert("It's a tie!");
-    } else if(playerSelection == "rock"
-    && computerSelection == "paper"){
-        alert("Paper beats rock. Computer wins!");
-    } else if(playerSelection == "rock"
-    && computerSelection == "scissors"){
-        alert("rock beats scissors. Player wins!");
-    } else if(playerSelection == "paper"
-    && computerSelection == "rock"){
-        alert("paper beats rock. Player wins!");
-    } else if(playerSelection == "paper"
-    && computerSelection == "scissors"){
-        alert("scissors beats paper. Computer wins!");
-    } else if(playerSelection == "scissors"
-    && computerSelection == "rock"){
-        alert("rock beats scissors. Computer wins!");
-    } else if(playerSelection == "scissors"
-    && computerSelection == "paper"){
-        alert("scissors beats paper. Player wins!");
+
+    } else if((playerSelection == "rock" && computerSelection == "paper")
+    || (playerSelection == "paper" && computerSelection == "scissors")
+    || (playerSelection == "scissors" && computerSelection == "rock")){
+        alert(computerSelection+" beats "+playerSelection+". Computer wins!");
+
+    } else if((playerSelection == "rock" && computerSelection == "scissors")
+    || (playerSelection == "paper" && computerSelection == "rock")
+    || (playerSelection == "scissors" && computerSelection == "paper")){
+        alert(playerSelection+" beats "+computerSelection+". Player wins!");
+
+
+
     } else {
         alert("Something went wrong. Ugh!");
     }
