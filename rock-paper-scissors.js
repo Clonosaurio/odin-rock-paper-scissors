@@ -41,7 +41,7 @@ no points given.
 
  Once <playerScore> or <computerScore> reach 5; the game
 stops and and:
- If <playerPlay> is 5; "You win the match!"
+ If <playerScore> is 5; "You win the match!"
  else: "You lost the match!"
  
  [Note: check some ways to keep playing after the game
