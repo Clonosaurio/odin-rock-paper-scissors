@@ -42,10 +42,11 @@ div {
 }
 
 .message {
-    /*justify-content: center;*/
     color: whitesmoke;
     font-size: 30px;
     text-align: center;
+    justify-content: center;
+    height: 100px;
 }
 
 .buttons {
