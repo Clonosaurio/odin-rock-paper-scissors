@@ -78,6 +78,11 @@ function playRound(playerSelection, computerSelection){
     } else {
         alert("Something went wrong. Ugh!");
     }
+    
+    if(round >= 5){
+        message.textContent = declareWinner();
+    }
+    
 }
 
 function declareWinner(){
