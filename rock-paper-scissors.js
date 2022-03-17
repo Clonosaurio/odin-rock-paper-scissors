@@ -1,9 +1,9 @@
 let playerSelection;
-let computerSelection;
+let computerSelection = computerPlay();
 let playerScore = 0;
 let computerScore = 0;
 
-alert("Rock Paper Scissors prompt edition!\n\n"
+/*alert("Rock Paper Scissors prompt edition!\n\n"
     +"Yeah, it sucks. Will be updated in the future.")
 
 prompt("What's your name?");
@@ -14,7 +14,7 @@ game()
 alert("End of the match! The scores are:\n"
 +"Player: "+playerScore+" points.\n"
 +"Computer: "+computerScore+" points.\n\n"
-+declareWinner())
++declareWinner())*/
 
 /*-----functions-----*/
 
@@ -50,18 +50,26 @@ function computerPlay(){
 /*-----*/
 function playRound(playerSelection, computerSelection){
     if(playerSelection == computerSelection){
-        alert("It's a tie!");
+        /*alert("It's a tie!");*/
+        message.textContent = "It's a tie!"
 
     } else if((playerSelection == "rock" && computerSelection == "paper")
     || (playerSelection == "paper" && computerSelection == "scissors")
     || (playerSelection == "scissors" && computerSelection == "rock")){
-        alert(computerSelection+" beats "+playerSelection+". Computer wins!");
+        /*alert(computerSelection+" beats "+playerSelection+". Computer wins!");*/
         computerScore++;
+        showPcScore.textContent = "PC score: "+computerScore;
+        message.textContent = computerSelection+" beats "+playerSelection+". Computer wins!"
+        
+
     } else if((playerSelection == "rock" && computerSelection == "scissors")
     || (playerSelection == "paper" && computerSelection == "rock")
     || (playerSelection == "scissors" && computerSelection == "paper")){
-        alert(playerSelection+" beats "+computerSelection+". Player wins!");
+        /*alert(playerSelection+" beats "+computerSelection+". Player wins!");*/
         playerScore++;
+        showPlayerScore.textContent = "Player score: "+ playerScore;
+        message.textContent = playerSelection+" beats "+computerSelection+". Player wins!"
+
     } else {
         alert("Something went wrong. Ugh!");
     }
@@ -79,3 +87,18 @@ function declareWinner(){
 
 /*-----DOM interaction-----*/
 
+let playRock = document.querySelector("#rock");
+playRock.addEventListener('click', () => {
+    playRound("rock", computerPlay())
+})
+let playPaper = document.querySelector("#paper");
+playPaper.addEventListener('click', () => {
+    playRound("paper", computerPlay())
+})
+let playScissors = document.querySelector("#scissors");
+playScissors.addEventListener('click', () => {
+    playRound("scissors", computerPlay())
+})
+let message = document.querySelector(".message");
+let showPlayerScore = document.querySelector(".player.score")
+let showPcScore = document.querySelector(".pc.score")
