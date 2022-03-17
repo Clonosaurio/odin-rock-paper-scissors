@@ -81,6 +81,9 @@ function playRound(playerSelection, computerSelection){
     
     if(round >= 5){
         message.textContent = declareWinner();
+        playRock.style.display = "none";
+        playPaper.style.display = "none";
+        playScissors.style.display = "none";
     }
     
 }
