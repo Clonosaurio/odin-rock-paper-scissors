@@ -1,5 +1,5 @@
 let playerSelection;
-let computerSelection = computerPlay();
+let computerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
