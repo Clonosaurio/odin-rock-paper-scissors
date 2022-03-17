@@ -2,6 +2,7 @@ let playerSelection;
 let computerSelection;
 let playerScore = 0;
 let computerScore = 0;
+let round = 0;
 
 /*alert("Rock Paper Scissors prompt edition!\n\n"
     +"Yeah, it sucks. Will be updated in the future.")
@@ -58,6 +59,8 @@ function playRound(playerSelection, computerSelection){
     || (playerSelection == "scissors" && computerSelection == "rock")){
         /*alert(computerSelection+" beats "+playerSelection+". Computer wins!");*/
         computerScore++;
+        round++;
+        roundCount.textContent = "Round "+round+"/5";
         showPcScore.textContent = "PC score: "+computerScore;
         message.textContent = computerSelection+" beats "+playerSelection+". Computer wins!"
         
@@ -67,6 +70,8 @@ function playRound(playerSelection, computerSelection){
     || (playerSelection == "scissors" && computerSelection == "paper")){
         /*alert(playerSelection+" beats "+computerSelection+". Player wins!");*/
         playerScore++;
+        round++;
+        roundCount.textContent = "Round "+round+"/5";
         showPlayerScore.textContent = "Player score: "+ playerScore;
         message.textContent = playerSelection+" beats "+computerSelection+". Player wins!"
 
@@ -100,5 +105,6 @@ playScissors.addEventListener('click', () => {
     playRound("scissors", computerPlay())
 })
 let message = document.querySelector(".message");
-let showPlayerScore = document.querySelector(".player.score")
-let showPcScore = document.querySelector(".pc.score")
+let showPlayerScore = document.querySelector(".player.score");
+let showPcScore = document.querySelector(".pc.score");
+let roundCount = document.querySelector(".round");
